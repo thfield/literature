@@ -1,0 +1,10 @@
+https://www.gutenberg.org/browse/scores/top
+accessed on 1/15/16 --top 100 ebooks yesterday
+
+https://readability-score.com/
+  https://github.com/DaveChild/Text-Statistics
+
+
+
+
+http://shiffman.net/teaching/a2z/week1/
