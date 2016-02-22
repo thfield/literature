@@ -2,6 +2,8 @@
   "use strict";
 
   function dropdown(selector, optionsArr){
+    // clears the selctor with id={selector}
+    // then populates it with options in optionsArr
     let selectorEl= document.getElementById(selector)
     clearOptions()
     optionsArr.forEach(function(el,i){
@@ -22,27 +24,26 @@
   }
 
   function textReport(book){
-    //
-    // "title": "A-Dolls-House",
-    // "wordCount": 27263,
-    // "avgGradeLevel": 2,
-    // "sentenceCount": 4213,
-    // "averageWordsPerSentence": 6.47,
-    // "averageSyllablesPerWord": 1.28,
-    // "topWords": [    ],
-    // "wordsUsedMultiple": 25675,
-    // "wordsUsedOnce": 1588
-    //
-    //
-    //
+    for (let prop in book) {
+      if (prop != 'punctuation'){
+        if (prop === 'topWords'){
+          d3.select(`#${prop}`).html(tableify(book[prop]))
+        } else{
+          d3.select(`#${prop}`).html(book[prop])
+        }
+      }
+    }
   }
 
-  let barchart = d3.select("#foo")
-    .append('svg')
-    .chart('BarChart', {})
-    .yFormat('n')
-    .height(400)
-    .width(800);
+  function tableify(arr){
+    let result = '<table>'
+    arr.forEach(function(el){
+      result = result.concat(`<tr><td>${el[0]}</td><td>${el[1]}</td></tr>`)
+    })
+    result = result.concat('</table>')
+    return result
+  }
+
   let titles = [
     'A-Dolls-House',
     'A-Tale-of-Two-Cities',
@@ -65,22 +66,28 @@
     'War-and-Peace',
     'Yesterday-House'
   ]
-  dropdown('title-dropdown', titles)
-  // let filename = titles[0]
 
-  d3.json(`data/punctCount.json`, function(data){
-    barchart.draw(data[titles[0]]);
+  let barchart = d3.select("#foo")
+    .append('svg')
+    .chart('BarChart', {})
+    .yFormat('n')
+    .height(400)
+    .width(800);
+
+  dropdown('title-dropdown', titles);
+
+  d3.json(`data/report.json`, function(data){
+    barchart.draw(data[titles[0]].punctuation);
+    textReport(data[titles[0]]);
+    d3.select('#title').html(titles[0].replace(/-/g,' '));
 
     d3.select('#title-dropdown')
       .on('change', function(el){
-        barchart.draw(data[this.value]);
-      })
-  })
-
-  // d3.json('data/report.json', function(data){
-  //   let report = _.find(data, (el)=>{ el.title === titles[0] });
-  //
-  // })
+        barchart.draw(data[this.value].punctuation);
+        textReport(data[this.value]);
+        d3.select('#title').html(this.value.replace(/-/g,' '));
+      });
+  });
 
 
 }());

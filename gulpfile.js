@@ -26,7 +26,8 @@ gulp.task('browserSync', function() {
 gulp.task('vendor', function() {
   var assets = [
     'node_modules/d3/d3.js',
-    'node_modules/d3.chart/d3.chart.js'
+    'node_modules/d3.chart/d3.chart.js',
+    'node_modules/lodash/lodash.js'
   ];
   return gulp.src(assets)
       .pipe(gulp.dest('src/vendor'))

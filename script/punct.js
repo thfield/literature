@@ -1,12 +1,33 @@
 // contains ES6 code
 "use strict";
-
-let fs = require('fs')
+const fs = require('fs')
 
 let dataObj = {}
 
+let titles = [
+  'A-Dolls-House',
+  'A-Tale-of-Two-Cities',
+  'Adventures-of-Huckleberry-Finn',
+  'Alices-Adventures-in-Wonderland',
+  'Beowulf',
+  'Dracula',
+  'Frankenstein',
+  'Great-Expectations',
+  'Metamorphosis',
+  'Moby-Dick',
+  'Pride-and-Prejudice',
+  'The-Adventures-of-Sherlock-Holmes',
+  'The-Adventures-of-Tom-Sawyer',
+  'The-Golden-Key',
+  'The-Kama-Sutra-of-Vatsyayana',
+  'The-Narrative-of-the-Life-of-Frederick-Douglass',
+  'The-Yellow-Wallpaper',
+  'Ulysses',
+  'War-and-Peace',
+  'Yesterday-House'
+]
 
-function crunch(title){
+function punctuation(title){
   let inputFile = 'raw/' + title + '.txt'
   let outputFile = 'punct/' + title + '-punct.txt'
   let outputFile2 = 'punctCount/' + title + '-count.json'
@@ -51,27 +72,6 @@ function chunkString(str, length) {
   return str.match(new RegExp('.{1,' + length + '}', 'g'));
 }
 
-let titles = [
-  'A-Dolls-House',
-  'A-Tale-of-Two-Cities',
-  'Adventures-of-Huckleberry-Finn',
-  'Alices-Adventures-in-Wonderland',
-  'Beowulf',
-  'Dracula',
-  'Frankenstein',
-  'Great-Expectations',
-  'Metamorphosis',
-  'Moby-Dick',
-  'Pride-and-Prejudice',
-  'The-Adventures-of-Sherlock-Holmes',
-  'The-Adventures-of-Tom-Sawyer',
-  'The-Golden-Key',
-  'The-Kama-Sutra-of-Vatsyayana',
-  'The-Narrative-of-the-Life-of-Frederick-Douglass',
-  'The-Yellow-Wallpaper',
-  'Ulysses',
-  'War-and-Peace',
-  'Yesterday-House'
-]
 
-titles.forEach(title => crunch(title))
+
+titles.forEach(title => punctuation(title))
