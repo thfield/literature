@@ -161,7 +161,6 @@
             .style('stroke-width', '1')
             .style('shape-rendering', 'crispEdges');
 
-
           return this.selectAll('text')
             .data(data, function(d) { return d.name; });
         },
@@ -186,7 +185,7 @@
 
       // on new/update data
       // render the bars.
-      var onEnter = function() {
+      var onEnterBars = function() {
         this.attr('x', function(d, i) {
               return chart.x(i) - 0.5;
             })
@@ -202,9 +201,19 @@
               return chart.y(chart.datamax - d.value);
             })
       };
+      var onEnterLabels = function() {
+        this.attr('x', function(d, i) {
+                return chart.x(i) - 0.5 + chart.bar_width/2;
+            })
+            .attr('dy', '1em')
+            .text(function(d) {
+              return d.name;
+            });
+      };
 
-      chart.layer('bars').on('enter', onEnter);
-      chart.layer('bars').on('update', onEnter);
+      chart.layer('bars').on('enter', onEnterBars);
+      chart.layer('bars').on('update', onEnterBars);
+      chart.layer('xlabels').on('update', onEnterLabels);
     },
 
     // return or set the max of the data. otherwise
