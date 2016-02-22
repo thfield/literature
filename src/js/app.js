@@ -55,10 +55,8 @@
   d3.json(`data/punctCount.json`, function(data){
 
     barchart.draw(data[titles[0]]);
-    // return d3.select('#'+this.selector+'-model-dropdown').node().value;
     d3.select('#title-dropdown')
       .on('change', function(el){
-        console.log(this.value)
         barchart.draw(data[this.value]);
       })
 
