@@ -22,7 +22,7 @@
       // we may want to have setters for this.
       // not sure how necessary that is tbh.
       chart.margins = {
-        top : 10,
+        top : 0,
         bottom : 20,
         left : 60,
         right : 0,
@@ -125,6 +125,7 @@
             .tickFormat(chart._yformat || d3.format('.0%'));
 
           chart.areas.ylabels
+            .attr("class", "y axis")
             .call(yAxis);
 
           return this.selectAll('rect')
@@ -136,9 +137,6 @@
               return chart.quantize(i)
             })
             .classed('bar', true)
-            .classed('highlight', function(d) {
-              return d.highlight;
-            });
         },
 
         events: {
@@ -193,13 +191,12 @@
               return chart.h - chart.margins.bottom -
                 chart.margins.top - chart.y(chart.datamax - d.value) - 0.5;
             })
-            .attr('val', function(d) {
-              return d.value;
-            })
             .attr('width', chart.bar_width)
             .attr('height', function(d) {
               return chart.y(chart.datamax - d.value);
             })
+          .append('title')
+            .html(function(d){ return d.value })
       };
       var onEnterLabels = function() {
         this.attr('x', function(d, i) {
