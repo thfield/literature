@@ -3,6 +3,8 @@
 
 let fs = require('fs')
 
+let dataObj = {}
+
 
 function crunch(title){
   let inputFile = 'raw/' + title + '.txt'
@@ -19,10 +21,20 @@ function crunch(title){
     punctCount[punct] = punctCount[punct] + 1
   })
 
+  let dataArr = []
+  for (let mark in punctCount){
+    dataArr.push({
+      name: mark,
+      value: punctCount[mark]
+    })
+  }
+
   processedText = chunkString(processedText.join(''), 75)
 
   writeToFile( processedText.join('\n'), outputFile)
-  writeToFile( JSON.stringify(punctCount), outputFile2)
+  // writeToFile( JSON.stringify(dataArr), outputFile2)
+  dataObj[title] = dataArr;
+  writeToFile( JSON.stringify(dataObj), 'all.json')
 }
 
 function writeToFile(data, filename){
