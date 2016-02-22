@@ -24,9 +24,9 @@
       chart.margins = {
         top : 10,
         bottom : 20,
-        left : 50,
+        left : 60,
         right : 0,
-        padding : 20
+        padding : 3
       };
 
       // default chart ranges

@@ -28,10 +28,13 @@ function analyze(title){
 function punctuation(title){
   let inputFile = 'raw/' + title + '.txt'
   let outputFile = 'punct/' + title + '-punct.txt'
-  let outputFile2 = 'punctCount/' + title + '-count.json'
+  // let outputFile2 = 'punctCount/' + title + '-count.json'
+
+  let regex = /[^a-zA-Z0-9\s]/g
+  // let regex = /[\.,'":;\!\?\-_\(\)\*\&\[\]]/g
 
   let originalText = fs.readFileSync(inputFile, 'utf8')
-  let processedText = originalText.match(/[^a-zA-Z0-9\s]/g)
+  let processedText = originalText.match(regex)
 
   let punctCount = {}
 
@@ -47,6 +50,17 @@ function punctuation(title){
       value: punctCount[mark]
     })
   }
+
+  dataArr.sort(function (a, b) {
+  if (a.name > b.name) {
+    return 1;
+  }
+  if (a.name < b.name) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+});
 
   processedText = chunkString(processedText.join(''), 75)
 
