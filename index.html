@@ -15,9 +15,25 @@
 </head>
 
 <body>
+  <p>
+    Choose a title from the dropdown menu:
+  </p>
   <select name="novel-title" id="title-dropdown"></select>
 
+  <hr>
+  <p>
+    The barchart shows the frequency each punctuation mark is used in the given text.
+  </p>
+
   <div class="" id="barchart"></div>
+
+  <hr>
+  <p>
+    This "heatmap" shows the individual punctuation marks as pixels colored according to the key below:
+  </p>
+  <p>
+    You may have to wait a second for the data to download and render in your browser.
+  </p>
   <div class="" id="graphic"></div>
   <div>
     <div class="key period">.</div>
@@ -37,8 +53,12 @@
     <div class="key bracketopen">[</div>
     <div class="key bracketclose">]</div>
   </div>
-<div class="clear"></div>
+  <div class="clear"></div>
+  <hr>
 
+  <p>
+    Some statistics about the text. <a href="https://readability-score.com/">Learn more about what these mean</a>.
+  </p>
   <div class="">
     <table>
       <tr><td class="definition">Title</td> <td id="title"></td></tr>
