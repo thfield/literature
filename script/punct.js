@@ -29,7 +29,7 @@ let titles = [
 
 function punctuation(title){
   let inputFile = 'raw/' + title + '.txt'
-  let outputFile = 'punct/' + title + '-punct.txt'
+  let outputFile = 'punctString/' + title + '-punct.txt'
   let outputFile2 = 'punctCount/' + title + '-count.json'
 
   let originalText = fs.readFileSync(inputFile, 'utf8')
@@ -50,12 +50,14 @@ function punctuation(title){
     })
   }
 
-  processedText = chunkString(processedText.join(''), 75)
+  // processedText = chunkString(processedText.join(''), 75)
 
-  writeToFile( processedText.join('\n'), outputFile)
+  writeToFile( processedText.join(''), outputFile)
+  // writeToFile( processedText.join('\n'), outputFile)
+  
   // writeToFile( JSON.stringify(dataArr), outputFile2)
-  dataObj[title] = dataArr;
-  writeToFile( JSON.stringify(dataObj), 'all.json')
+  // dataObj[title] = dataArr;
+  // writeToFile( JSON.stringify(dataObj), 'all.json')
 }
 
 function writeToFile(data, filename){

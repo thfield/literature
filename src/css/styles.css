@@ -1,4 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 body {
+  font-family: 'Open Sans', sans-serif;
   /*background-color: #eee;*/ }
 
 #tooltip {
@@ -25,3 +27,6 @@ body {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges; }
+
+.definition {
+  font-weight: bold; }
