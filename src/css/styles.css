@@ -31,6 +31,46 @@ body {
 .definition {
   font-weight: bold; }
 
+.clear {
+  clear: both; }
+
+.key {
+  font-family: monospace;
+  padding: 15px;
+  float: left; }
+  .key.doublequote {
+    background-color: #78c679; }
+  .key.singlequote {
+    background-color: #78c679; }
+  .key.comma {
+    background-color: #238443; }
+  .key.period {
+    background-color: #e31a1c; }
+  .key.questionmark {
+    background-color: #cb181d; }
+  .key.exclaationpoint {
+    background-color: #cb181d; }
+  .key.colon {
+    background-color: #225ea8; }
+  .key.semicolon {
+    background-color: #225ea8; }
+  .key.parenthesisopen {
+    background-color: #bf812d; }
+  .key.parenthesisclose {
+    background-color: #bf812d; }
+  .key.bracketopen {
+    background-color: #bf812d; }
+  .key.bracketclose {
+    background-color: #bf812d; }
+  .key.asterisk {
+    background-color: #d9d9d9; }
+  .key.ampersand {
+    background-color: #d9d9d9; }
+  .key.dash {
+    background-color: #bdbdbd; }
+  .key.underscore {
+    background-color: #bdbdbd; }
+
 .doublequote {
   fill: #78c679; }
 

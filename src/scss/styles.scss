@@ -37,7 +37,31 @@ body {
 .definition {
   font-weight: bold;
 }
+.clear {
+  clear: both
+}
+.key {
+  font-family: monospace;
+  padding: 15px;
+  float: left;
+  &.doublequote{ background-color: rgb(120, 198, 121); }
+  &.singlequote{ background-color: rgb(120, 198, 121); }
+  &.comma{ background-color: rgb(35, 132, 67); }
+  &.period{ background-color: rgb(227, 26, 28); }
+  &.questionmark{ background-color: rgb(203, 24, 29); }
+  &.exclaationpoint{ background-color: rgb(203, 24, 29); }
+  &.colon{ background-color: rgb(34, 94, 168); }
+  &.semicolon{ background-color: rgb(34, 94, 168); }
+  &.parenthesisopen{ background-color: rgb(191, 129, 45); }
+  &.parenthesisclose{ background-color: rgb(191, 129, 45); }
+  &.bracketopen{ background-color: rgb(191, 129, 45); }
+  &.bracketclose{ background-color: rgb(191, 129, 45); }
+  &.asterisk{ background-color: rgb(217, 217, 217); }
+  &.ampersand{ background-color: rgb(217, 217, 217); }
+  &.dash{ background-color: rgb(189, 189, 189); }
+  &.underscore{ background-color: rgb(189, 189, 189); }
 
+}
 
 .doublequote{ fill: rgb(120, 198, 121); }
 .singlequote{ fill: rgb(120, 198, 121); }

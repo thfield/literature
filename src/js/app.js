@@ -105,6 +105,47 @@
 
   }
 
+  function drawGraphic(title){
+    d3.select('#graphic svg').remove()
+
+    let svg = d3.select('#graphic').append('svg')
+
+    let square = 3
+    d3.text(`data/punctString/${title}-punct.txt`, function(data){
+      let tot = Math.round(Math.sqrt(data.length))
+
+      // console.log(tot)
+      // console.log(data.length)
+
+      let arr = chunkString(data, tot)
+      // console.log(arr.length)
+
+      arr = arr.map(function(el){
+        return el.split('')
+      })
+
+      svg.attr('height', function(){
+        return arr.length * square
+      })
+      .attr('width', function(){
+        return arr.length * square
+      })
+
+      arr.forEach(function(row,i){
+        row.forEach(function(mark, col){
+          svg.append('rect')
+              .attr('height',square)
+              .attr('width',square)
+              .attr('y',i*square)
+              .attr('x',col*square)
+              .attr('class', function(){
+                return namePunctuation(mark)
+              })
+        })
+      })
+    })
+  }
+
   let titles = [
     'A-Dolls-House',
     'A-Tale-of-Two-Cities',
@@ -143,6 +184,7 @@
     textReport(data[titles[0]]);
     drawGraphic(titles[0]);
     d3.select('#title').html(titles[0].replace(/-/g,' '));
+    d3.select('#punct-link').attr('href',`data/punct/${titles[0]}-punct.txt`);
 
     d3.select('#title-dropdown')
       .on('change', function(el){
@@ -150,50 +192,11 @@
         textReport(data[this.value]);
         drawGraphic(this.value);
         d3.select('#title').html(this.value.replace(/-/g,' '));
+        d3.select('#punct-link').attr('href',`data/punct/${this.value}-punct.txt`);
       });
   });
 
 
-function drawGraphic(title){
-  d3.select('#graphic svg').remove()
-
-  let svg = d3.select('#graphic').append('svg')
-
-  let square = 3
-  d3.text(`data/punctString/${title}-punct.txt`, function(data){
-    let tot = Math.round(Math.sqrt(data.length))
-
-    // console.log(tot)
-    // console.log(data.length)
-
-    let arr = chunkString(data, tot)
-    // console.log(arr.length)
-
-    arr = arr.map(function(el){
-      return el.split('')
-    })
-
-    svg.attr('height', function(){
-      return arr.length * square
-    })
-    .attr('width', function(){
-      return arr.length * square
-    })
-
-    arr.forEach(function(row,i){
-      row.forEach(function(mark, col){
-        svg.append('rect')
-            .attr('height',square)
-            .attr('width',square)
-            .attr('y',i*square)
-            .attr('x',col*square)
-            .attr('class', function(){
-              return namePunctuation(mark)
-            })
-      })
-    })
-  })
-}
 
 
 }());
