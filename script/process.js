@@ -70,26 +70,32 @@ function crunch(title){
 
 
 let titles = [
-  'A-Dolls-House',
-  'A-Tale-of-Two-Cities',
-  'Adventures-of-Huckleberry-Finn',
-  'Alices-Adventures-in-Wonderland',
-  'Beowulf',
-  'Dracula',
-  'Frankenstein',
-  'Great-Expectations',
-  'Metamorphosis',
-  'Moby-Dick',
-  'Pride-and-Prejudice',
-  'The-Adventures-of-Sherlock-Holmes',
-  'The-Adventures-of-Tom-Sawyer',
-  'The-Golden-Key',
-  'The-Kama-Sutra-of-Vatsyayana',
-  'The-Narrative-of-the-Life-of-Frederick-Douglass',
-  'The-Yellow-Wallpaper',
-  'Ulysses',
-  'War-and-Peace',
-  'Yesterday-House'
+  'A-Connecticut-Yankee-in-King-Arthurs-Court',
+  'Life-On-The-Mississippi',
+  'The-Prince-and-The-Pauper',
+  'David-Copperfield',
+  'Nicholas-Nickleby',
+  'Oliver-Twist'
+  // 'A-Dolls-House',
+  // 'A-Tale-of-Two-Cities',
+  // 'Adventures-of-Huckleberry-Finn',
+  // 'Alices-Adventures-in-Wonderland',
+  // 'Beowulf',
+  // 'Dracula',
+  // 'Frankenstein',
+  // 'Great-Expectations',
+  // 'Metamorphosis',
+  // 'Moby-Dick',
+  // 'Pride-and-Prejudice',
+  // 'The-Adventures-of-Sherlock-Holmes',
+  // 'The-Adventures-of-Tom-Sawyer',
+  // 'The-Golden-Key',
+  // 'The-Kama-Sutra-of-Vatsyayana',
+  // 'The-Narrative-of-the-Life-of-Frederick-Douglass',
+  // 'The-Yellow-Wallpaper',
+  // 'Ulysses',
+  // 'War-and-Peace',
+  // 'Yesterday-House'
 ]
 
 titles.forEach(title => crunch(title))

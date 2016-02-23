@@ -18,3 +18,10 @@ The-Yellow-Wallpaper.txt
 Ulysses.txt
 War-and-Peace.txt
 Yesterday-House.txt
+
+A-Connecticut-Yankee-in-King-Arthurs-Court.txt
+Life-On-The-Mississippi.txt
+The-Prince-and-The-Pauper.txt
+David-Copperfield.txt
+Nicholas-Nickleby.txt
+Oliver-Twist.txt

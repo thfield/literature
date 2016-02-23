@@ -5,6 +5,12 @@ const fs = require('fs')
 let dataObj = {}
 
 let titles = [
+  'A-Connecticut-Yankee-in-King-Arthurs-Court',
+  'Life-On-The-Mississippi',
+  'The-Prince-and-The-Pauper',
+  'David-Copperfield',
+  'Nicholas-Nickleby',
+  'Oliver-Twist',
   'A-Dolls-House',
   'A-Tale-of-Two-Cities',
   'Adventures-of-Huckleberry-Finn',
