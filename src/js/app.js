@@ -48,25 +48,61 @@
     return str.match(new RegExp('.{1,' + length + '}', 'g'));
   }
 
-  function colorFromMark(mark){
+  function namePunctuation(mark){
     switch (mark) {
-      case '?':
-      case '!':
-      case '.':
-        return 'red';
+      case '"':
+        return 'doublequote';
         break;
       case '\'':
-      case '"':
+        return 'singlequote';
+        break;
+      case '.':
+        return 'period';
+        break;
       case ',':
-        return 'green';
+        return 'comma';
+        break;
+      case '-':
+        return 'dash';
+        break;
+      case '_':
+        return 'underscore';
         break;
       case ':':
+        return 'colon';
+        break;
       case ';':
-        return 'blue';
+        return 'semicolon';
+        break;
+      case '?':
+        return 'questionmark';
+        break;
+      case '!':
+        return 'exclaationpoint';
+        break;
+      case '(':
+        return 'parenthesisopen';
+        break;
+      case ')':
+        return 'parenthesisclose';
+        break;
+      case '[':
+        return 'bracketopen';
+        break;
+      case ']':
+        return 'bracketclose';
+        break;
+      case '*':
+        return 'asterisk';
+        break;
+      case '&':
+        return 'ampersand';
         break;
       default:
-        return 'white';
+        return 'unknown';
+        break;
     }
+
   }
 
   let titles = [
@@ -94,7 +130,7 @@
 
   dropdown('title-dropdown', titles);
 
-  let barchart = d3.select("#foo")
+  let barchart = d3.select("#barchart")
     .append('svg')
     .chart('BarChart', {})
     .yFormat('n')
@@ -123,14 +159,24 @@ function drawGraphic(title){
 
   let svg = d3.select('#graphic').append('svg')
 
-  let square = 4
+  let square = 3
   d3.text(`data/punctString/${title}-punct.txt`, function(data){
-    let arr = chunkString(data, 250)
+    let tot = Math.round(Math.sqrt(data.length))
+
+    // console.log(tot)
+    // console.log(data.length)
+
+    let arr = chunkString(data, tot)
+    // console.log(arr.length)
+
     arr = arr.map(function(el){
       return el.split('')
     })
 
     svg.attr('height', function(){
+      return arr.length * square
+    })
+    .attr('width', function(){
       return arr.length * square
     })
 
@@ -141,8 +187,8 @@ function drawGraphic(title){
             .attr('width',square)
             .attr('y',i*square)
             .attr('x',col*square)
-            .attr('fill', function(){
-              return colorFromMark(mark)
+            .attr('class', function(){
+              return namePunctuation(mark)
             })
       })
     })

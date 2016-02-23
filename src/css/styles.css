@@ -30,3 +30,51 @@ body {
 
 .definition {
   font-weight: bold; }
+
+.doublequote {
+  fill: #78c679; }
+
+.singlequote {
+  fill: #78c679; }
+
+.comma {
+  fill: #238443; }
+
+.period {
+  fill: #e31a1c; }
+
+.questionmark {
+  fill: #cb181d; }
+
+.exclaationpoint {
+  fill: #cb181d; }
+
+.colon {
+  fill: #225ea8; }
+
+.semicolon {
+  fill: #225ea8; }
+
+.parenthesisopen {
+  fill: #bf812d; }
+
+.parenthesisclose {
+  fill: #bf812d; }
+
+.bracketopen {
+  fill: #bf812d; }
+
+.bracketclose {
+  fill: #bf812d; }
+
+.asterisk {
+  fill: #d9d9d9; }
+
+.ampersand {
+  fill: #d9d9d9; }
+
+.dash {
+  fill: #bdbdbd; }
+
+.underscore {
+  fill: #bdbdbd; }

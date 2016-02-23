@@ -30,8 +30,8 @@ function punctuation(title){
   let outputFile = 'punct/' + title + '-punct.txt'
   // let outputFile2 = 'punctCount/' + title + '-count.json'
 
-  let regex = /[^a-zA-Z0-9\s]/g
-  // let regex = /[\.,'":;\!\?\-_\(\)\*\&\[\]]/g
+  // let regex = /[^a-zA-Z0-9\s]/g
+  let regex = /[\.,'":;\!\?\-_\(\)\*\&\[\]]/g
 
   let originalText = fs.readFileSync(inputFile, 'utf8')
   let processedText = originalText.match(regex)

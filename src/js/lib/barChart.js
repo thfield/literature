@@ -133,9 +133,10 @@
         },
         insert : function() {
           return this.append('rect')
-            .attr('fill', function(d,i){
-              return chart.quantize(i)
-            })
+              .attr('fill', 'rgb(253, 141, 60)')
+            // .attr('fill', function(d,i){
+            //   return chart.quantize(i)
+            // })
             .classed('bar', true)
         },
 

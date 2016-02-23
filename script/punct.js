@@ -33,7 +33,8 @@ function punctuation(title){
   let outputFile2 = 'punctCount/' + title + '-count.json'
 
   let originalText = fs.readFileSync(inputFile, 'utf8')
-  let processedText = originalText.match(/[^a-zA-Z0-9\s]/g)
+  // let processedText = originalText.match(/[^a-zA-Z0-9\s]/g)
+  let processedText = originalText.match(/[\.,'":;\!\?\-_\(\)\*\&\[\]]/g)
 
   let punctCount = {}
 
@@ -54,7 +55,7 @@ function punctuation(title){
 
   writeToFile( processedText.join(''), outputFile)
   // writeToFile( processedText.join('\n'), outputFile)
-  
+
   // writeToFile( JSON.stringify(dataArr), outputFile2)
   // dataObj[title] = dataArr;
   // writeToFile( JSON.stringify(dataObj), 'all.json')
