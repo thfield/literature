@@ -7,6 +7,8 @@ I set this project aside for a few weeks and came across a [Vox article](http://
 
 I liked what Adam had done with graphs and "heatmaps" of punctuation, so I recreated that.  
 
+I wrote about this on [Medium](https://medium.com/@thfield/punctuation-in-some-more-novels-ee89ef854402)
+
 ## Next steps
 - Better layout
 - Adapt the script so that arbitrary text can be input and analyzed, as that seems to be what a lot of the Medium responses are asking for.
